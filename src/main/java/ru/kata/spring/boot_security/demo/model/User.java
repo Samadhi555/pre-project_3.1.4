@@ -1,5 +1,6 @@
 package ru.kata.spring.boot_security.demo.model;
 
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -115,6 +116,7 @@ public class User implements UserDetails {
         return email;
     }
 
+
     public void setEmail(String email) {
         this.email = email;
         this.username = email;
@@ -158,6 +160,7 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
+        if (user.email.equals(this.email)) return true;
         return age == user.age && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(username, user.username) && Objects.equals(email, user.email);
     }
 

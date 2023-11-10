@@ -48,7 +48,6 @@ public class DataLoader implements CommandLineRunner {
         adminUser.setLastname("Petrov");
         adminUser.setAge((byte) 30);
         adminUser.setEmail("admin@mail.ru");
-        adminUser.setUsername("admin@mail.ru");
         adminUser.setPassword("admin");
         adminUser.setRoles(new HashSet<>(Collections.singletonList(roleAdmin)));
         userService.save(adminUser);
@@ -59,7 +58,6 @@ public class DataLoader implements CommandLineRunner {
         regularUser.setLastname("Ivanova");
         regularUser.setAge((byte) 25);
         regularUser.setEmail("user@mail.ru");
-        regularUser.setUsername("user@mail.ru");
         regularUser.setPassword("user");
         regularUser.setRoles(new HashSet<>(Collections.singletonList(roleUser)));
         userService.save(regularUser);
