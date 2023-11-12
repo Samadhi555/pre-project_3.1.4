@@ -44,6 +44,13 @@ public class User implements UserDetails {
     public User() {
     }
 
+    public User(Set<Role> roles) {
+        roles.add(new Role(1L, "ROLE_USER"));
+        roles.add(new Role(2L, "ROLE_ADMIN"));
+        this.roles = roles;
+    }
+
+
     public User(String firstname, String lastname, byte age, String password, String email, Set<Role> roles) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -62,6 +69,15 @@ public class User implements UserDetails {
         this.password = password;
         this.email = email;
         this.roles = roles;
+    }
+
+
+    public String roleToString(){
+        StringBuilder sb = new StringBuilder();
+        for(Role role: roles){
+            sb.append(role.getName().replaceAll("ROLE_","").trim()).append(" ");
+        }
+        return sb.toString();
     }
 
     public Long getId() {

@@ -37,7 +37,7 @@
     <span>
         <span class="navbar-brand font-weight-bold" th:text="${user.email}"></span>
         <span class="navbar-brand"
-              th:text="'with roles: ' + ${#strings.replace(user.roles[0].name, 'ROLE_', '')}"></span>
+              th:text="${user.roleToString()}"></span>
     </span>
     <ul class="navbar-nav">
         <li class="nav-item">
@@ -80,11 +80,7 @@
                             <td th:text="${user.lastname}"></td>
                             <td th:text="${user.age}"></td>
                             <td th:text="${user.email}"></td>
-                            <td class="align-bottom">
-                                <div th:each="role : ${user.roles}">
-                                    <p id="role_field" th:text="${#strings.replace(role.name, 'ROLE_', '')}"></p>
-                                </div>
-                            </td>
+                            <td th:text="${user.roleToString()}"></td>
                         </tr>
                         </tbody>
                     </table>
